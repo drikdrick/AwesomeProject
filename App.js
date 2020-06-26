@@ -1,24 +1,33 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
   const [outputText, setOutputText] = useState("Fedrick Sulaiman Siagian");
   return (
-    <View style={styles.container}>
-      <Text>{outputText}</Text>
-      <Button
-        title="Change Text"
-        onPress={() => setOutputText("My First App")}
-      />
+    <View style={{ padding: 50 }}>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <TextInput
+          placeholder="Course Goals"
+          style={{
+            width: "80%",
+            borderColor: "black",
+            borderWidth: 1,
+            padding: 10,
+          }}
+        />
+        <Button title="Add" />
+      </View>
+      <View></View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  container: {},
 });
