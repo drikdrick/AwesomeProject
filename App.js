@@ -2,26 +2,26 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 export default function App() {
-  const [outputText, setOutputText] = useState("Fedrick Sulaiman Siagian");
+  const [enteredGoal, setEnteredGoal] = useState("");
+
+  const inputHandler = (enteredText) => {
+    setEnteredGoal(enteredText);
+  };
+
+  const addInputHandler = () => {
+    console.log(enteredGoal);
+  };
+
   return (
-    <View style={{ padding: 50 }}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
         <TextInput
           placeholder="Course Goals"
-          style={{
-            width: "80%",
-            borderColor: "black",
-            borderWidth: 1,
-            padding: 10,
-          }}
+          style={styles.input}
+          onChangeText={inputHandler}
+          value={enteredGoal}
         />
-        <Button title="Add" />
+        <Button title="Add" onPress={addInputHandler} />
       </View>
       <View></View>
     </View>
@@ -29,5 +29,18 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    padding: 50,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  input: {
+    width: "80%",
+    borderColor: "black",
+    borderWidth: 1,
+    padding: 10,
+  },
 });
